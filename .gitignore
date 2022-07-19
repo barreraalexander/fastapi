@@ -5,7 +5,7 @@ examples
 .pem
 
 
-# .env
+.env
 
 
 alembic
