@@ -4,6 +4,10 @@ examples
 .bash
 .pem
 
+
+# .env
+
+
 alembic
 alembic.ini
 # PYTHON IGNORES
