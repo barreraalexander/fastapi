@@ -4,6 +4,8 @@ examples
 .bash
 .pem
 
+alembic
+alembic.ini
 # PYTHON IGNORES
 
 # Byte-compiled / optimized / DLL files
