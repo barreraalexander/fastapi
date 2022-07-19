@@ -8,8 +8,8 @@ examples
 .env
 
 
-alembic
-alembic.ini
+# alembic
+# alembic.ini
 # PYTHON IGNORES
 
 # Byte-compiled / optimized / DLL files
