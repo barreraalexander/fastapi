@@ -85,7 +85,6 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), curren
 
     print (current_user)
 
-    # new_post.
 
     db.add(new_post)
     db.commit()

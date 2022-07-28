@@ -3,18 +3,17 @@ from app import schemas
 from jose import jwt
 from app.config import settings
 
-
 from secrets import token_hex
 
 def test_create_user(client):
     token = token_hex(5)
     res = client.post("/users/", json={
-        "email" : f'klope_{token}@gmail.com',
+        "email" : f'klop@gmail.com',
         "password" : 'password123'
     })
 
     new_user = schemas.UserOut(**res.json())
-    assert new_user.email ==  f"klope_{token}@gmail.com"
+    assert new_user.email ==  f"klop@gmail.com"
     assert res.status_code == 201
 
 def test_login_user(client, test_user):

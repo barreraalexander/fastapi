@@ -3,7 +3,8 @@ import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from app.database import Base, get_db
+from app.database import get_db
+from app.database import Base
 from app.main import app
 from app.config import settings
 from app.oauth2 import create_access_token
@@ -19,7 +20,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL_TEST)
 
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base()
+# Base = declarative_base()
 
 client = TestClient(app)
 
@@ -28,6 +29,7 @@ client = TestClient(app)
 def session():
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
+    # Base.metadata.drop_all(bind=engine)
     db = TestingSessionLocal()
     try:
         yield db
@@ -49,7 +51,7 @@ def client(session):
 @pytest.fixture
 def test_user(client):
     user_data = {
-        "email" : f"tuna_{token_hex(6)}@gmail.com",
+        "email" : f"tuna_@gmail.com",
         "password" : "password123"
     }
     res = client.post("/users/", json=user_data)

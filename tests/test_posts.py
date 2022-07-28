@@ -33,5 +33,11 @@ def test_get_one_post(authorized_client, test_posts):
     post = schemas.PostOut(**res.json())
 
     assert post.Post.id == test_posts[0].id
+    assert post.Post.title == test_posts[0].title
+
+def test_create_post(authorized_client, test_user, test_posts):
+    res = authorized_client.post()
+    
+
 
     # assert res.status_code == 401
